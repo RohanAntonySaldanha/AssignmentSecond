@@ -2,14 +2,16 @@ const express = require("express");
 
 const app = express();
 
-app.use(express.json());
+app.use(express.json()); //middleware used for json data
 
-let data = [];
+let data = []; // empty array initialization
 
+// get request to display json array that is inserted using post request for /api/data endpoint 
 app.get("/api/data", (req, res) => {
   res.json(data);
 });
 
+// post request to generate json data into data array 
 app.post("/api/data", (req, res) => {
   const newData = {
     id: req.body.id,
